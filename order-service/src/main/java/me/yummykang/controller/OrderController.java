@@ -1,5 +1,6 @@
 package me.yummykang.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import me.yummykang.bean.Order;
 import me.yummykang.client.MemberClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class OrderController {
         return orders;
     }
 
+    @HystrixCommand(fallbackMethod = "reliable")
     @RequestMapping(value = "/{orderId}", method = RequestMethod.GET)
     public Object orderDetail(@PathVariable("orderId") int orderId) {
         if (orderId == -1) {
@@ -42,5 +44,9 @@ public class OrderController {
             result.put(memberClient.currentMember(1), new Order(1, "O2017010400001", "测试feign订单", new BigDecimal(1000)));
             return result;
         }
+    }
+
+    public Object reliable(int orderId) {
+        return "the method is gone!!!";
     }
 }
