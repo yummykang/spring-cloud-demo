@@ -3,6 +3,8 @@ package me.yummykang.controller;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import me.yummykang.bean.Order;
 import me.yummykang.client.MemberClient;
+import me.yummykang.exception.BusinessException;
+import me.yummykang.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,9 @@ public class OrderController {
     @Autowired
     private MemberClient memberClient;
 
+    @Autowired
+    private GoodsService goodsService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public Object findOrders() {
         List<Order> orders = new ArrayList<>();
@@ -44,6 +49,11 @@ public class OrderController {
             result.put(memberClient.currentMember(1), new Order(1, "O2017010400001", "测试feign订单", new BigDecimal(1000)));
             return result;
         }
+    }
+
+    @RequestMapping(value = "/buy", method = RequestMethod.GET)
+    public Object buyOne() throws BusinessException {
+        return goodsService.buyOne();
     }
 
     public Object reliable(int orderId) {

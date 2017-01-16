@@ -30,4 +30,4 @@ zuul:
         sensitiveHeaders:
 
 server:
-  port: 8010
+  port: 7000

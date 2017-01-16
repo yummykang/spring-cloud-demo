@@ -15,4 +15,3 @@ server:
 security:
   user:
     password: root
-

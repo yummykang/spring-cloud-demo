@@ -10,6 +10,8 @@
 		<module>config-server</module>
         <module>member-service</module>
 		<module>order-service</module>
+		<module>eureka-server</module>
+		<module>zuul-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,4 +23,13 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
