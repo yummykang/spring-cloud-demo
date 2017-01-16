@@ -1,0 +1,11 @@
+spring:
+  oauth2:
+    client:
+      clientId: 4cb59ee4c1f1e206b284
+      clientSecret: a367aae73d9b6b62c9de18038ef265201a2cedee
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://api.github.com/user
+      preferTokenInfo: false
