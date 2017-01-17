@@ -29,5 +29,18 @@ zuul:
         stripPrefix: false
         sensitiveHeaders:
 
+    auth-service:
+            path: /uaa/**
+            serviceId: auth-service
+            stripPrefix: false
+            sensitiveHeaders:
+
+    composite-service:
+                path: /order-details/**
+                serviceId: composite-service
+                stripPrefix: false
+                sensitiveHeaders:
+
+
 server:
   port: 7000

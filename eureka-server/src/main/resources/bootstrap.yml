@@ -10,9 +10,10 @@ spring:
 
 eureka:
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
   client:
     registerWithEureka: false
     fetchRegistry: false
+    leaseRenewalIntervalInSeconds: 5
     server:
       waitTimeInMsWhenSyncEmpty: 0

@@ -1,2 +1,11 @@
+security:
+  oauth2:
+    client:
+      clientId: composite-service
+      clientSecret: root
+      accessTokenUri: http://localhost:7000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
 server:
-  port: 9000
+  port: 5000
