@@ -4,3 +4,6 @@
 ## order-service 订单服务
 ## member-service 会员服务
 ## zuul-gateway api接口网关
+## zipkin-server zipkin
+## auth-service OAuth2验证
+## composite-service 组合service
