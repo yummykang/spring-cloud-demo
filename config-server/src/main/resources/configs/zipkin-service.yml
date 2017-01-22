@@ -1,0 +1,14 @@
+server:
+  port: 9411
+
+spring:
+  sleuth:
+    enabled: false
+    #refer to org.springframework.cloud.sleuth.instrument.hystrix.SleuthHystrixAutoConfiguration.java
+    hystrix:
+      strategy:
+        enabled: false
+
+zipkin:
+  storage:
+    type: mem #mysql #mem

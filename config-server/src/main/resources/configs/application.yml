@@ -22,3 +22,30 @@ spring:
     host: 192.168.241.131
     username: admin
     password: admin123
+
+  zipkin:
+    #defult is true,to use zipkin,false:not use
+    enabled: true
+    baseUrl: http://zipkin:9411/
+
+    sleuth:
+      sampler:
+        # 采样率，默认0.1即10%,如需测试时每次都看到trace则修改为1.0，但对性能有影响，注意上线时修改为合理值
+        percentage: 1.0
+      hystrix:
+        strategy:
+          enabled: true
+      #https://github.com/ReactiveX/RxJava/issues/2297
+      rxjava:
+        schedulers:
+          hook:
+            enabled: false
+      # stream format  to send trace msg: enable sleuth.stream to use stream
+      # default is true,refer to SleuthStreamAutoConfiguration.java
+      stream:
+        enabled: true
+
+sample:
+  zipkin:
+    # When enabled=false, traces log to the console. Comment to send to zipkin
+    enabled: true
